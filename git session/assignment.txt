@@ -1,6 +1,6 @@
 1) Download p5.js
 2) checkout p5 branch
 3) Get it running
-4) make changes
+4) make changes *like this, lol (byFlorian)*
 5) commit
 
