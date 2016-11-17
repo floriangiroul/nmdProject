@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.4/p5.js"></script>
+    <script>
+        var margin = 15;
+        var sizeBall = 25;
+        var arrSize = 50;
+        var amnt = [];
+
+        function setup() {
+            createCanvas(window.innerWidth, window.innerHeight);
+
+            for (var a = 0; a < arrSize; a++) {
+                var amount = Math.floor(Math.random() * arrSize);
+                amnt[a] = amount;
+                console.log(amnt[a].toString());
+            }
+
+           textSize(12);
+            textFont("Helvetica");
+        }
+
+        function draw() {
+            noFill();
+            for (var i = margin; i < width - margin; i += sizeBall) {
+                for (var j = margin; j < height - margin; j += sizeBall) {
+                    ellipse(i, j, sizeBall, sizeBall);
+                }
+            }
+
+            fill(0);
+            for (var a = 0; a < arrSize; a++) {
+                textSize(20);
+                text(amnt[a].toString(), a, a);
+            }
+
+        }
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>
