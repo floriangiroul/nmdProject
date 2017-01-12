@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.4/p5.js"></script>
+    <script>
+        function drawCircles(){
+         var ts = 32;
+         textSize(ts);
+         var spacer = 50;
+         var counter = 0;
+         for (var y = spacer; y < height-spacer; y+= spacer){
+         for (var x = spacer; x < width-spacer; x+=spacer){
+
+             if (counter++ >= numbers.length-1){
+               return;
+             }
+             ellipse(x, y, spacer, spacer);
+
+             text(numbers[counter], x-ts/2, y+ts/3);
+
+           }
+         }
+       }
+
+[3:58]  
+var amnt = 6;
+        for (var i = 0; i < amnt; i++) {
+          numbers[i] = Math.floor(random(amnt))
+        }
+
+[3:58]  
+////
+
+[3:58]  
+var numbers = [];
+      var ready = false;
+
+      function setup() {
+
+        createCanvas(window.innerWidth, window.innerHeight);
+
+        var amnt = 6;
+        for (var i = 0; i < amnt; i++) {
+          numbers[i] = Math.floor(random(amnt))
+        }
+       }
+
+       function drawCircles(){
+         var ts = 32;
+         textSize(ts);
+         var spacer = 50;
+         var counter = 0;
+         for (var y = spacer; y < height-spacer; y+= spacer){
+         for (var x = spacer; x < width-spacer; x+=spacer){
+
+             if (counter++ >= numbers.length-1){
+               return;
+             }
+             ellipse(x, y, spacer, spacer);
+
+             text(numbers[counter], x-ts/2, y+ts/3);
+
+           }
+         }
+       }
+
+   function draw() {
+     drawCircles();
+
+     if (!ready){
+       numbers = shuffler(numbers);
+       checkBogo();
+     }
+   }
+        
+        function shuffler(array) {
+           var currentIndex = array.length, temporaryValue, randomIndex;
+
+           // While there remain elements to shuffle...
+           while (0 !== currentIndex) {
+
+             // Pick a remaining element...
+             randomIndex = Math.floor(Math.random() * currentIndex);
+             currentIndex -= 1;
+
+             // And swap it with the current element.
+             temporaryValue = array[currentIndex];
+             array[currentIndex] = array[randomIndex];
+             array[randomIndex] = temporaryValue;
+           }
+
+         return array;
+       }
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>
